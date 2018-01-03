@@ -1,0 +1,9 @@
+C:\Users\Adem\Desktop\Code Samples\SimonSays\SimonSays\bin\SimonSays.dll.config
+C:\Users\Adem\Desktop\Code Samples\SimonSays\SimonSays\bin\SimonSays.dll
+C:\Users\Adem\Desktop\Code Samples\SimonSays\SimonSays\bin\SimonSays.pdb
+C:\Users\Adem\Desktop\Code Samples\SimonSays\SimonSays\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Adem\Desktop\Code Samples\SimonSays\SimonSays\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Adem\Desktop\Code Samples\SimonSays\SimonSays\obj\Debug\SimonSays.csprojResolveAssemblyReference.cache
+C:\Users\Adem\Desktop\Code Samples\SimonSays\SimonSays\obj\Debug\SimonSays.csproj.CoreCompileInputs.cache
+C:\Users\Adem\Desktop\Code Samples\SimonSays\SimonSays\obj\Debug\SimonSays.dll
+C:\Users\Adem\Desktop\Code Samples\SimonSays\SimonSays\obj\Debug\SimonSays.pdb

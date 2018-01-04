@@ -20,8 +20,7 @@ function startButton() {
         $("#turn").text("--");
         deactivateButtons();
         series = [];
-        clickCount = 0;
-        clicked = [];
+        resetClicks();
         //Stops lighting up the buttons
         execNewSeries = clearTimeout(execNewSeries);
         exe = clearTimeout(exe);
@@ -33,8 +32,7 @@ $("#reset").click(function () {
     if ($("#start-event").prop("checked")) {
         deactivateButtons();
         series = [];
-        clicked = [];
-        clickCount = 0;
+        resetClicks();
         $("#turn").text("01");
         //Stops lighting up the buttons
         exe = clearTimeout(exe);
@@ -49,30 +47,40 @@ function randomNumber() {
     return random;
 }
 
+function lightUpTheButton(x) {
+    $('.btn-circle:eq(' + x + ')').addClass('light');
+}
+
 function removeLight() {
     $('.btn-circle').removeClass('light');
 }
 
+function resetClicks() {
+    clicked = [];
+    clickCount = 0;
+}
+
 function callButton() {
-    switch (randomNumber()) {
+    var rnd = randomNumber();
+    switch (rnd) {
         case 0:
             redSound.play();
-            $('.btn-red').addClass("light");
+            lightUpTheButton(rnd);
             setTimeout(removeLight, 500);
             break;
         case 1:
             blueSound.play();
-            $('.btn-blue').addClass("light");
+            lightUpTheButton(rnd);
             setTimeout(removeLight, 500);
             break;
         case 2:
             yellowSound.play();
-            $('.btn-yellow').addClass("light");
+            lightUpTheButton(rnd);
             setTimeout(removeLight, 500);
             break;
         case 3:
             greenSound.play();
-            $('.btn-green').addClass("light");
+            lightUpTheButton(rnd);
             setTimeout(removeLight, 500);
             break;
     }
@@ -121,10 +129,7 @@ function activateButtons() {
 
 //Buttons lose their click function
 function deactivateButtons() {
-    $("div .btn-red").unbind("click");
-    $("div .btn-blue").unbind("click");
-    $("div .btn-yellow").unbind("click");
-    $("div .btn-green").unbind("click");
+    $("div .btn-circle").unbind("click");
 }
 
 //Lights up the buttons in the recorded order
@@ -135,22 +140,22 @@ function callSeries() {
             switch (series[i]) {
                 case 0:
                     redSound.play();
-                    $('.btn-red').addClass("light");
+                    lightUpTheButton(series[i]);
                     setTimeout(removeLight, 500);
                     break;
                 case 1:
                     blueSound.play();
-                    $('.btn-blue').addClass("light");
+                    lightUpTheButton(series[i]);
                     setTimeout(removeLight, 500);
                     break;
                 case 2:
                     yellowSound.play();
-                    $('.btn-yellow').addClass("light");
+                    lightUpTheButton(series[i]);
                     setTimeout(removeLight, 500);
                     break;
                 case 3:
                     greenSound.play();
-                    $('.btn-green').addClass("light");
+                    lightUpTheButton(series[i]);
                     setTimeout(removeLight, 500);
                     break;
             }
@@ -180,8 +185,7 @@ function compare(x) {
     if (!$("#strict-event").prop("checked") && series[x] !== clicked[x]) {
         deactivateButtons();
         $("#turn").text("!!");
-        clicked = [];
-        clickCount = 0;
+        resetClicks();
         setTimeout(function () { $("#turn").text(turnText); }, 2000);
         setTimeout(callSeries, 3000);
         setTimeout(activateButtons, 1000 * series.length + 4000);
@@ -191,8 +195,7 @@ function compare(x) {
         deactivateButtons();
         $("#turn").text("!!");
         series = [];
-        clicked = [];
-        clickCount = 0;
+        resetClicks();
         setTimeout(function () { $("#turn").text("01"); }, 2000);
         execCallButton = setTimeout(callButton, 3000);
     }
@@ -220,8 +223,7 @@ function compare(x) {
 
             a = a.join('');
             $("#turn").text(a);
-            clicked = [];
-            clickCount = 0;
+            resetClicks();
             execNewSeries = setTimeout(callSeriesAndNewButton, 2000);
         }
     }

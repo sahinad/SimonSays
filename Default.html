@@ -2,9 +2,74 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="This is famous Simon Says game." />
+    <meta name="keywords" content="simon, says, game, application, javascript, jquery" />
+    <title>Simon Says</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link href="Content/style.min.css" rel="stylesheet" />
 </head>
 <body>
+    <div class="container">
+        <h1 class="text-center">
+            SIMON SAYS
+            <img src="Content/Images/simon.png" alt="simon" width="100" />
+        </h1>
+        <div id="main">
+            <div id="options">
+                <table>
+                    <tr>
+                        <td><strong>Start</strong></td>
+                        <td><strong>Strict</strong></td>
+                        <td><strong>Reset</strong></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="start" class="pull-left">
+                                <input id="start-event" type="checkbox" data-toggle="toggle" onchange="startButton()">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="strict" class="pull-left">
+                                <input id="strict-event" type="checkbox" data-toggle="toggle">
+                            </div>
+                        </td>
+                        <td>
+                            <div id="reset" class="pull-left">
+                                <button class="btn btn-danger">R</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="screen">
+                <span id="turn">--</span>
+            </div>
+            <div id="buttons">
+                <div id="red" type="button" class="btn-red btn-circle btn-xl pull-left"></div>
+                <div id="blue" type="button" class="btn-blue btn-circle btn-xl pull-left"></div>
+                <div id="yellow" type="button" class="btn-yellow btn-circle btn-xl pull-left"></div>
+                <div id="green" type="button" class="btn-green btn-circle btn-xl pull-left"></div>
+            </div>
+        </div>
+        <div id="series"></div>
+        <div id="clicked"></div>
 
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content text-center">
+                <span class="close">&times;</span>
+                <img src="Content/Images/homer.gif" alt="homer" />
+                <p>YOU HAVE PERFECT MEMORY!</p>
+            </div>
+
+        </div>
+    </div>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="Scripts/script.min.js"></script>
 </body>
 </html>
